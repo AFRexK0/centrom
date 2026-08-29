@@ -1,6 +1,18 @@
 import { useState, type FormEvent } from 'react'
+import { useLocale } from '../i18n/LocaleProvider'
+
+const LANE_KEYS = [
+  'software',
+  'wordpress',
+  'shopify',
+  'hosting',
+  'finished',
+] as const
+
+type LaneKey = (typeof LANE_KEYS)[number]
 
 export function Contact() {
+  const { t } = useLocale()
   const [status, setStatus] = useState('')
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -8,15 +20,16 @@ export function Contact() {
     const data = new FormData(event.currentTarget)
     const name = String(data.get('name') || '').trim()
     const email = String(data.get('email') || '').trim()
-    const lane = String(data.get('lane') || '')
+    const laneKey = String(data.get('lane') || '') as LaneKey
+    const laneLabel = t.contact.lanes[laneKey] || t.contact.mailGeneral
     const message = String(data.get('message') || '').trim()
 
-    const subject = encodeURIComponent(`Centrom brief — ${lane || 'general'}`)
+    const subject = encodeURIComponent(`${t.contact.mailSubject} ${laneLabel}`)
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nLane: ${lane}\n\n${message}`,
+      `${t.contact.name}: ${name}\n${t.contact.email}: ${email}\n${t.contact.lane}: ${laneLabel}\n\n${message}`,
     )
 
-    setStatus('opening mail client...')
+    setStatus(t.contact.statusOpening)
     window.location.href = `mailto:hello@centrom.studio?subject=${subject}&body=${body}`
   }
 
@@ -25,20 +38,17 @@ export function Contact() {
       <div className="section-inner contact-wrap">
         <div>
           <div className="section-head" style={{ marginBottom: '1.5rem' }}>
-            <p className="mono-label">07 / ping</p>
-            <h2>Send the brief.</h2>
-            <p>
-              Tell us what you sell, what needs to exist online, and the budget
-              band. We reply from the same desk that ships the work.
-            </p>
+            <p className="mono-label">{t.contact.label}</p>
+            <h2>{t.contact.h2}</h2>
+            <p>{t.contact.p}</p>
           </div>
           <form className="contact-form" onSubmit={onSubmit}>
             <div className="field">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">{t.contact.name}</label>
               <input id="name" name="name" autoComplete="name" required />
             </div>
             <div className="field">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{t.contact.email}</label>
               <input
                 id="email"
                 name="email"
@@ -48,26 +58,26 @@ export function Contact() {
               />
             </div>
             <div className="field">
-              <label htmlFor="lane">Lane</label>
+              <label htmlFor="lane">{t.contact.lane}</label>
               <select id="lane" name="lane" defaultValue="software">
-                <option value="software">Custom software</option>
-                <option value="wordpress">WordPress</option>
-                <option value="shopify">Shopify</option>
-                <option value="hosting">Hosting / brokerage</option>
-                <option value="finished">Finished product</option>
+                {LANE_KEYS.map((key) => (
+                  <option key={key} value={key}>
+                    {t.contact.lanes[key]}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="field">
-              <label htmlFor="message">Brief</label>
+              <label htmlFor="message">{t.contact.brief}</label>
               <textarea
                 id="message"
                 name="message"
                 required
-                placeholder="What needs to exist, and by when?"
+                placeholder={t.contact.placeholder}
               />
             </div>
             <button className="btn" type="submit">
-              Transmit
+              {t.contact.transmit}
             </button>
             <p className="form-status" aria-live="polite">
               {status}
@@ -75,19 +85,16 @@ export function Contact() {
           </form>
         </div>
         <aside className="contact-side crt-frame">
-          <p className="mono-label">channel</p>
+          <p className="mono-label">{t.contact.channel}</p>
           <h3>hello@centrom.studio</h3>
-          <p>
-            Prefer a domain that ages well? We aim for centrom.studio /
-            centrom.com — not another mid-2010s .io relic.
-          </p>
+          <p>{t.contact.sideP}</p>
           <dl className="contact-meta">
-            <dt>Response window</dt>
-            <dd>usually within 1 business day</dd>
-            <dt>Timezone</dt>
-            <dd>CET / CEST · remote-first desks</dd>
-            <dt>Engagements</dt>
-            <dd>project · retainer · brokered stack</dd>
+            <dt>{t.contact.responseWindow}</dt>
+            <dd>{t.contact.responseValue}</dd>
+            <dt>{t.contact.timezone}</dt>
+            <dd>{t.contact.timezoneValue}</dd>
+            <dt>{t.contact.engagements}</dt>
+            <dd>{t.contact.engagementsValue}</dd>
           </dl>
         </aside>
       </div>

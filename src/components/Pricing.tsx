@@ -1,85 +1,48 @@
-const TIERS = [
-  {
-    tier: 'Boot',
-    title: 'Landing / brochure',
-    amount: '€1.2k',
-    unit: 'from',
-    featured: false,
-    points: [
-      'Single-page or small WP site',
-      'Mobile-first layout',
-      'Basic SEO + analytics',
-      '2 revision rounds',
-    ],
-  },
-  {
-    tier: 'Runtime',
-    title: 'Store or software',
-    amount: '€3.2k',
-    unit: 'from',
-    featured: true,
-    points: [
-      'Shopify theme or custom tool',
-      'Integrations & content model',
-      'Staging + launch support',
-      '30 days post-ship care',
-    ],
-  },
-  {
-    tier: 'Uptime',
-    title: 'Host & retain',
-    amount: '€59',
-    unit: '/ month',
-    featured: false,
-    points: [
-      'Managed hosting & SSL',
-      'Backups + updates',
-      'Priority ticket lane',
-      'Brokered add-ons as needed',
-    ],
-  },
-]
+import { useLocale } from '../i18n/LocaleProvider'
+
+const FEATURED_TIER = 1
 
 export function Pricing() {
+  const { t } = useLocale()
+
   return (
     <section className="section" id="pricing">
       <div className="section-inner">
         <div className="section-head">
-          <p className="mono-label">06 / ledger</p>
-          <h2>Clear bands, no guesswork.</h2>
-          <p>
-            Accessible starting points — not a menu of tricks. Exact quotes
-            follow a short brief. Finished packages and brokerage sit in the
-            same bands.
-          </p>
+          <p className="mono-label">{t.pricing.label}</p>
+          <h2>{t.pricing.h2}</h2>
+          <p>{t.pricing.p}</p>
         </div>
         <div className="price-grid">
-          {TIERS.map((tier) => (
+          {t.pricing.tiers.map((tier, index) => (
             <article
-              className={`price-card crt-frame${tier.featured ? ' featured' : ''}`}
+              className={`price-card crt-frame${index === FEATURED_TIER ? ' featured' : ''}`}
               key={tier.tier}
             >
               <span className="tier">{tier.tier}</span>
               <h3>{tier.title}</h3>
               <p className="amount">
                 {tier.amount}
-                <span> {tier.unit}</span>
+                <span>
+                  {' '}
+                  {index === 2 ? t.pricing.perMonth : t.pricing.from}
+                </span>
               </p>
               <ul>
-                {tier.points.map((point) => (
-                  <li key={point}>{point}</li>
+                {tier.points.map((point, pointIndex) => (
+                  <li key={pointIndex}>{point}</li>
                 ))}
               </ul>
-              <a className={`btn${tier.featured ? ' btn-cyan' : ''}`} href="#contact">
-                Request quote
+              <a
+                className={`btn${index === FEATURED_TIER ? ' btn-cyan' : ''}`}
+                href="#contact"
+              >
+                {t.pricing.requestQuote}
               </a>
             </article>
           ))}
         </div>
-        <p className="price-note">
-          // larger systems and multi-property rollouts quoted separately · EU
-          VAT where applicable
-        </p>
+        <p className="price-note">{t.pricing.note}</p>
       </div>
     </section>
   )
