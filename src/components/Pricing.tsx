@@ -2,7 +2,7 @@ const TIERS = [
   {
     tier: 'Boot',
     title: 'Landing / brochure',
-    amount: '€1.8k',
+    amount: '€1.5k',
     unit: 'from',
     featured: false,
     points: [
@@ -15,7 +15,7 @@ const TIERS = [
   {
     tier: 'Runtime',
     title: 'Store or software',
-    amount: '€4.5k',
+    amount: '€3.5k',
     unit: 'from',
     featured: true,
     points: [
@@ -28,7 +28,7 @@ const TIERS = [
   {
     tier: 'Uptime',
     title: 'Host & retain',
-    amount: '€89',
+    amount: '€69',
     unit: '/ month',
     featured: false,
     points: [
@@ -61,6 +61,7 @@ export function Pricing() {
               <span className="tier">{tier.tier}</span>
               <h3>{tier.title}</h3>
               <p className="amount">
+                <span className="approx">approx.</span>
                 {tier.amount}
                 <span> {tier.unit}</span>
               </p>
