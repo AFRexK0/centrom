@@ -21,6 +21,7 @@ type ParallaxOptions = {
 type ScrollMotionContextValue = {
   registerReveal: (el: HTMLElement, options?: RevealOptions) => () => void
   registerParallax: (el: HTMLElement, options: ParallaxOptions) => () => void
+  subscribeScroll: (listener: () => void) => () => void
 }
 
 const ScrollMotionContext = createContext<ScrollMotionContextValue | null>(null)
@@ -36,7 +37,15 @@ function clamp(value: number, min: number, max: number) {
 export function ScrollProvider({ children }: { children: ReactNode }) {
   const reveals = useRef(new Map<HTMLElement, RevealOptions>())
   const parallax = useRef(new Map<HTMLElement, ParallaxOptions>())
+  const scrollListeners = useRef(new Set<() => void>())
   const reducedMotion = useRef(false)
+
+  const subscribeScroll = useCallback((listener: () => void) => {
+    scrollListeners.current.add(listener)
+    return () => {
+      scrollListeners.current.delete(listener)
+    }
+  }, [])
 
   const registerReveal = useCallback(
     (el: HTMLElement, options: RevealOptions = {}) => {
@@ -108,6 +117,8 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
 
         el.style.transform = `translate3d(0, ${scroll * options.speed}px, 0)`
       }
+
+      scrollListeners.current.forEach((listener) => listener())
     }
 
     let frame = 0
@@ -141,8 +152,8 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const value = useMemo(
-    () => ({ registerReveal, registerParallax }),
-    [registerReveal, registerParallax],
+    () => ({ registerReveal, registerParallax, subscribeScroll }),
+    [registerReveal, registerParallax, subscribeScroll],
   )
 
   return (

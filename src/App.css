@@ -633,10 +633,17 @@
 }
 
 /* ——— Process ——— */
+.process-track {
+  position: relative;
+}
+
+.process-rail {
+  display: none;
+}
+
 .process-steps {
   display: grid;
   gap: 0;
-  counter-reset: step;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -644,58 +651,100 @@
 
 .process-step {
   position: relative;
-  padding: 1.5rem 0 1.5rem 1.25rem;
-  border-left: 1px dashed rgba(57, 255, 154, 0.35);
-  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1.35rem 0;
 }
 
-.process-step::before {
-  content: counter(step, decimal-leading-zero);
-  position: absolute;
-  left: -1.35rem;
-  top: 1.45rem;
+.process-marker {
+  position: relative;
+  z-index: 2;
   width: 2.5rem;
   height: 2.5rem;
   display: grid;
   place-items: center;
   background: var(--bg);
-  border: 1px solid var(--green);
-  color: var(--green);
+  border: 1px solid rgba(57, 255, 154, 0.35);
+  color: rgba(57, 255, 154, 0.55);
   font-family: var(--font-display);
   font-size: 1.15rem;
+  transition:
+    border-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    background 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
 }
 
-.process-step h3 {
+.process-step.is-passed .process-marker {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.process-step.is-active .process-marker {
+  border-color: var(--green);
+  color: var(--bg);
+  background: var(--green);
+  box-shadow: var(--glow-green);
+}
+
+.process-step-body h3 {
   font-family: var(--font-display);
   font-size: 1.7rem;
   font-weight: 400;
-  margin: 0.2rem 0 0.45rem 1.4rem;
+  margin: 0.15rem 0 0.45rem;
+  color: var(--ink);
+  transition: color 0.35s var(--ease);
 }
 
-.process-step p {
-  margin-left: 1.4rem;
+.process-step.is-active .process-step-body h3 {
+  color: var(--green);
+}
+
+.process-step-body p {
   color: var(--muted);
   max-width: 36rem;
+  transition: color 0.35s var(--ease);
+}
+
+.process-step.is-passed .process-step-body p,
+.process-step.is-active .process-step-body p {
+  color: var(--ink);
 }
 
 @media (max-width: 859px) {
-  .process-steps {
-    padding-left: 1.35rem;
+  #process .section-inner {
+    width: min(1120px, calc(100% - 2rem));
+  }
+
+  .process-rail {
+    display: block;
+    position: absolute;
+    left: 1.25rem;
+    width: 2px;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+    background: rgba(57, 255, 154, 0.16);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .process-rail-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(180deg, var(--green), rgba(45, 226, 255, 0.85));
+    box-shadow: 0 0 12px rgba(57, 255, 154, 0.45);
+    border-radius: 1px;
+    will-change: height;
   }
 
   .process-step {
-    padding: 1.5rem 0 1.5rem 3.25rem;
-    border-left: none;
-  }
-
-  .process-step::before {
-    left: 0;
-    top: 1.35rem;
-  }
-
-  .process-step h3,
-  .process-step p {
-    margin-left: 0;
+    padding: 1.15rem 0;
   }
 }
 
@@ -703,23 +752,19 @@
   .process-steps {
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    border-left: none;
   }
 
   .process-step {
-    border-left: none;
+    grid-template-columns: 1fr;
+    gap: 0;
     border-top: 1px dashed rgba(57, 255, 154, 0.35);
     padding: 2.2rem 0.5rem 0;
   }
 
-  .process-step::before {
+  .process-marker {
+    position: absolute;
     left: 0.5rem;
     top: -1.25rem;
-  }
-
-  .process-step h3,
-  .process-step p {
-    margin-left: 0;
   }
 }
 
