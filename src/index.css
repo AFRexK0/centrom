@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap');
+
+:root {
+  --bg: #050608;
+  --bg-raised: #0c0e14;
+  --bg-panel: #10131c;
+  --ink: #e8fff4;
+  --muted: #7a9a8c;
+  --dim: #3d5248;
+  --green: #39ff9a;
+  --cyan: #2de2ff;
+  --magenta: #ff3d9a;
+  --amber: #ffc14d;
+  --yellow: #f5ff6b;
+  --line: rgba(57, 255, 154, 0.22);
+  --glow-green: 0 0 24px rgba(57, 255, 154, 0.35);
+  --glow-cyan: 0 0 24px rgba(45, 226, 255, 0.35);
+  --font-display: 'VT323', 'Courier New', monospace;
+  --font-body: 'IBM Plex Mono', 'SF Mono', ui-monospace, monospace;
+  --nav-h: 64px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+#root {
+  min-height: 100svh;
+  position: relative;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+::selection {
+  background: rgba(45, 226, 255, 0.35);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
