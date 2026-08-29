@@ -1,4 +1,5 @@
 import { useLocale } from '../i18n/LocaleProvider'
+import { ScrollReveal } from '../scroll/ScrollReveal'
 
 export function Process() {
   const { t } = useLocale()
@@ -6,17 +7,22 @@ export function Process() {
   return (
     <section className="section" id="process">
       <div className="section-inner">
-        <div className="section-head">
+        <ScrollReveal className="section-head">
           <p className="mono-label">{t.process.label}</p>
           <h2>{t.process.h2}</h2>
           <p>{t.process.p}</p>
-        </div>
+        </ScrollReveal>
         <ol className="process-steps">
           {t.process.steps.map((step, index) => (
-            <li className="process-step" key={index}>
+            <ScrollReveal
+              as="li"
+              className="process-step"
+              key={index}
+              delay={Math.min(index * 0.08, 0.24)}
+            >
               <h3>{step.title}</h3>
               <p>{step.copy}</p>
-            </li>
+            </ScrollReveal>
           ))}
         </ol>
       </div>

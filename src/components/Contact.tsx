@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { useLocale } from '../i18n/LocaleProvider'
+import { ScrollReveal } from '../scroll/ScrollReveal'
 
 const LANE_KEYS = [
   'software',
@@ -36,7 +37,7 @@ export function Contact() {
   return (
     <section className="section" id="contact">
       <div className="section-inner contact-wrap">
-        <div>
+        <ScrollReveal>
           <div className="section-head" style={{ marginBottom: '1.5rem' }}>
             <p className="mono-label">{t.contact.label}</p>
             <h2>{t.contact.h2}</h2>
@@ -83,8 +84,8 @@ export function Contact() {
               {status}
             </p>
           </form>
-        </div>
-        <aside className="contact-side crt-frame">
+        </ScrollReveal>
+        <ScrollReveal as="aside" className="contact-side crt-frame" delay={0.1}>
           <p className="mono-label">{t.contact.channel}</p>
           <h3>hello@centrom.studio</h3>
           <p>{t.contact.sideP}</p>
@@ -96,7 +97,7 @@ export function Contact() {
             <dt>{t.contact.engagements}</dt>
             <dd>{t.contact.engagementsValue}</dd>
           </dl>
-        </aside>
+        </ScrollReveal>
       </div>
     </section>
   )

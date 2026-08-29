@@ -1,4 +1,5 @@
 import { useLocale } from '../i18n/LocaleProvider'
+import { ScrollParallax } from '../scroll/ScrollReveal'
 
 export function Hero() {
   const { t } = useLocale()
@@ -6,14 +7,14 @@ export function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-bg" aria-hidden="true">
-        <div className="hero-grid" />
+        <ScrollParallax as="div" className="hero-grid" speed={0.14} />
       </div>
       <div className="hero-inner">
         <p className="mono-label">{t.hero.label}</p>
         <div className="hero-brand" aria-label="Centrom">
           CENTROM
         </div>
-        <div className="hero-copy">
+        <ScrollParallax as="div" className="hero-copy" speed={0.05}>
           <h1>{t.hero.h1}</h1>
           <p>{t.hero.p}</p>
           <div className="cta-row">
@@ -24,8 +25,8 @@ export function Hero() {
               {t.hero.ctaPricing}
             </a>
           </div>
-        </div>
-        <aside className="hero-terminal crt-frame" aria-hidden="true">
+        </ScrollParallax>
+        <ScrollParallax as="aside" className="hero-terminal crt-frame" speed={0.08} aria-hidden={true}>
           <div>
             <span className="prompt">root@centrom:~$</span> uptime
           </div>
@@ -38,7 +39,7 @@ export function Hero() {
             <span className="prompt">root@centrom:~$</span>{' '}
             <span className="cursor" />
           </div>
-        </aside>
+        </ScrollParallax>
       </div>
     </section>
   )

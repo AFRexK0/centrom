@@ -118,6 +118,19 @@
   align-items: center;
 }
 
+.scroll-reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
 /* ——— Nav ——— */
 .nav {
   position: fixed;
