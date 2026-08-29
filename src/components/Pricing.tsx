@@ -2,7 +2,7 @@ const TIERS = [
   {
     tier: 'Boot',
     title: 'Landing / brochure',
-    amount: '€1.5k',
+    amount: '€1.2k',
     unit: 'from',
     featured: false,
     points: [
@@ -15,7 +15,7 @@ const TIERS = [
   {
     tier: 'Runtime',
     title: 'Store or software',
-    amount: '€3.5k',
+    amount: '€3.2k',
     unit: 'from',
     featured: true,
     points: [
@@ -28,7 +28,7 @@ const TIERS = [
   {
     tier: 'Uptime',
     title: 'Host & retain',
-    amount: '€69',
+    amount: '€59',
     unit: '/ month',
     featured: false,
     points: [
@@ -46,10 +46,11 @@ export function Pricing() {
       <div className="section-inner">
         <div className="section-head">
           <p className="mono-label">06 / ledger</p>
-          <h2>Mid-range, printed clearly.</h2>
+          <h2>Clear bands, no guesswork.</h2>
           <p>
-            Starting bands — not a menu of tricks. Exact quotes follow a short
-            brief. Finished packages and brokerage sit in the same bands.
+            Accessible starting points — not a menu of tricks. Exact quotes
+            follow a short brief. Finished packages and brokerage sit in the
+            same bands.
           </p>
         </div>
         <div className="price-grid">
@@ -61,7 +62,6 @@ export function Pricing() {
               <span className="tier">{tier.tier}</span>
               <h3>{tier.title}</h3>
               <p className="amount">
-                <span className="approx">approx.</span>
                 {tier.amount}
                 <span> {tier.unit}</span>
               </p>
