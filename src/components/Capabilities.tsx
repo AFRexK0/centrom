@@ -12,20 +12,15 @@ export function Capabilities() {
           <h2>{t.capabilities.h2}</h2>
           <p>{t.capabilities.p}</p>
         </ScrollReveal>
-        <div className="cap-grid">
-          {t.capabilities.items.map((cap, index) => (
-            <ScrollReveal
-              as="article"
-              className="cap-item"
-              key={cap.chip}
-              delay={Math.min(index * 0.05, 0.25)}
-            >
+        <ScrollReveal className="cap-grid">
+          {t.capabilities.items.map((cap) => (
+            <article className="cap-item" key={cap.chip}>
               <span className="code-chip">{cap.chip}</span>
               <h3>{cap.title}</h3>
               <p>{cap.copy}</p>
-            </ScrollReveal>
+            </article>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

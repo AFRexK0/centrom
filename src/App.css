@@ -678,6 +678,27 @@
   max-width: 36rem;
 }
 
+@media (max-width: 859px) {
+  .process-steps {
+    padding-left: 1.35rem;
+  }
+
+  .process-step {
+    padding: 1.5rem 0 1.5rem 3.25rem;
+    border-left: none;
+  }
+
+  .process-step::before {
+    left: 0;
+    top: 1.35rem;
+  }
+
+  .process-step h3,
+  .process-step p {
+    margin-left: 0;
+  }
+}
+
 @media (min-width: 860px) {
   .process-steps {
     grid-template-columns: repeat(4, 1fr);
