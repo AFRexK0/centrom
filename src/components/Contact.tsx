@@ -92,10 +92,6 @@ export function Contact() {
           <dl className="contact-meta">
             <dt>{t.contact.responseWindow}</dt>
             <dd>{t.contact.responseValue}</dd>
-            <dt>{t.contact.timezone}</dt>
-            <dd>{t.contact.timezoneValue}</dd>
-            <dt>{t.contact.engagements}</dt>
-            <dd>{t.contact.engagementsValue}</dd>
           </dl>
         </ScrollReveal>
       </div>
