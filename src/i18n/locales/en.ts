@@ -153,6 +153,17 @@ export const en: Translations = {
           'Staging + launch support',
           '30 days post-ship care',
         ],
+        },
+        {
+          tier: 'Advice & Consulting',
+          title: 'Strategy and technical guidance',
+          amount: '150 CHF / hour',
+          points: [
+            'Review of your current site or setup',
+            'Tech stack and tooling recommendations',
+            'Roadmap and cost estimate',
+            'Written summary after each session',
+        ],
       },
     ],
   },
