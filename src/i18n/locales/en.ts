@@ -182,7 +182,7 @@ export const en: Translations = {
     mailGeneral: 'general',
     channel: 'channel',
     sideP:
-      'Prefer a domain that ages well? We aim for centrom.ch  Not another mid-2010s .io relic.',
+      'Prefer a domain that ages well? You are in the right place! We will chase perfection for you',
     responseWindow: 'Response window',
     responseValue: 'usually within 1 business day',
     timezone: 'Timezone',
