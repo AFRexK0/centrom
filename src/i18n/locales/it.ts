@@ -182,7 +182,7 @@ export const it: Translations = {
     mailGeneral: 'generale',
     channel: 'canale',
     sideP:
-      'Preferisci un dominio che invecchia bene? Puntiamo a centrom.studio / centrom.com — non un relic .io del 2010.',
+      'Preferisci un dominio che invecchia bene? Puntiamo a centrom.ch  Non un relic .io del 2010.',
     responseWindow: 'Tempo di risposta',
     responseValue: 'di solito entro 1 giorno lavorativo',
     timezone: 'Fuso orario',
@@ -198,7 +198,7 @@ export const it: Translations = {
     },
   },
   footer: {
-    domains: 'centrom.studio · centrom.com',
+    domains: 'centrom.ch',
     copyright: '© {year} Centrom · tutti i sistemi nominali',
   },
 }
