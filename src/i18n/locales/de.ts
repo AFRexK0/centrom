@@ -189,10 +189,6 @@ export const de: Translations = {
       'Eine Website, die auch in fünf Jahren noch gut aussieht? Dann sind Sie hier richtig.',
     responseWindow: 'Antwortzeit',
     responseValue: 'in der Regel innerhalb von 1 Werktag',
-    timezone: 'Zeitzone',
-    timezoneValue: 'CET · UTC+1',
-    engagements: 'Projektarten',
-    engagementsValue: 'Software, WordPress, Shopify, Hosting',
     lanes: {
       software: 'Individuelle Software',
       wordpress: 'WordPress',
