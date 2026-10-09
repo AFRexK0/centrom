@@ -82,10 +82,6 @@ export type Translations = {
     sideP: string
     responseWindow: string
     responseValue: string
-    timezone: string
-    timezoneValue: string
-    engagements: string
-    engagementsValue: string
     lanes: {
       software: string
       wordpress: string
