@@ -189,10 +189,6 @@ export const fr: Translations = {
       'Un site web qui aura encore fière allure dans cinq ans ? Vous êtes au bon endroit.',
     responseWindow: 'Délai de réponse',
     responseValue: 'en général sous 1 jour ouvré',
-    timezone: 'Fuseau horaire',
-    timezoneValue: 'CET · UTC+1',
-    engagements: 'Types de projets',
-    engagementsValue: 'logiciels, WordPress, Shopify, hébergement',
     lanes: {
       software: 'Logiciel sur mesure',
       wordpress: 'WordPress',
