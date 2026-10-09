@@ -87,7 +87,7 @@ export function Contact() {
         </ScrollReveal>
         <ScrollReveal as="aside" className="contact-side crt-frame" delay={0.1}>
           <p className="mono-label">{t.contact.channel}</p>
-          <h3>hello@centrom.studio</h3>
+          <h3>hello@centrom.ch</h3>
           <p>{t.contact.sideP}</p>
           <dl className="contact-meta">
             <dt>{t.contact.responseWindow}</dt>
