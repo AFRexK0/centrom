@@ -189,10 +189,6 @@ export const it: Translations = {
       'Volete un sito che stia ancora bene tra cinque anni? Siete nel posto giusto.',
     responseWindow: 'Tempo di risposta',
     responseValue: 'di solito entro 1 giorno lavorativo',
-    timezone: 'Fuso orario',
-    timezoneValue: 'CET · UTC+1',
-    engagements: 'Tipi di progetto',
-    engagementsValue: 'software, WordPress, Shopify, hosting',
     lanes: {
       software: 'Software su misura',
       wordpress: 'WordPress',
