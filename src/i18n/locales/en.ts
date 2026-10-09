@@ -189,10 +189,6 @@ export const en: Translations = {
       "Want a website that still looks good in five years? You're in the right place.",
     responseWindow: 'Response window',
     responseValue: 'usually within 1 business day',
-    timezone: 'Timezone',
-    timezoneValue: 'CET · UTC+1',
-    engagements: 'Engagements',
-    engagementsValue: 'software, WordPress, Shopify, hosting',
     lanes: {
       software: 'Custom software',
       wordpress: 'WordPress',
