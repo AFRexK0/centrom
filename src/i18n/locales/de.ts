@@ -182,7 +182,7 @@ export const de: Translations = {
     mailGeneral: 'allgemein',
     channel: 'kanal',
     sideP:
-      'Eine Domain, die altert? Wir zielen auf centrom.studio / centrom.com — kein weiteres .io-Relikt aus den 2010ern.',
+      'Eine Domain, die altert? Wir zielen auf centrom.ch  Kein weiteres .io-Relikt aus den 2010ern.',
     responseWindow: 'Antwortzeit',
     responseValue: 'meist innerhalb eines Werktags',
     timezone: 'Zeitzone',
@@ -198,7 +198,7 @@ export const de: Translations = {
     },
   },
   footer: {
-    domains: 'centrom.studio · centrom.com',
+    domains: 'centrom.ch',
     copyright: '© {year} Centrom · alle Systeme nominal',
   },
 }
