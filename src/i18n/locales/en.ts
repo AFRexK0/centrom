@@ -133,9 +133,9 @@ export const en: Translations = {
     note: '// larger systems and multi-property rollouts quoted separately · EU VAT where applicable',
     tiers: [
       {
-        tier: 'Boot',
+        tier: 'For Everyone',
         title: 'Landing / brochure',
-        amount: '€1.2k',
+        amount: '1000 CHF',
         points: [
           'Single-page or small WP site',
           'Mobile-first layout',
@@ -144,25 +144,14 @@ export const en: Translations = {
         ],
       },
       {
-        tier: 'Runtime',
+        tier: 'Systems for Businesses',
         title: 'Store or software',
-        amount: '€3.2k',
+        amount: '2400 CHF',
         points: [
           'Shopify theme or custom tool',
           'Integrations & content model',
           'Staging + launch support',
           '30 days post-ship care',
-        ],
-      },
-      {
-        tier: 'Uptime',
-        title: 'Host & retain',
-        amount: '€59',
-        points: [
-          'Managed hosting & SSL',
-          'Backups + updates',
-          'Priority ticket lane',
-          'Brokered add-ons as needed',
         ],
       },
     ],
