@@ -182,7 +182,7 @@ export const fr: Translations = {
     mailGeneral: 'général',
     channel: 'canal',
     sideP:
-      'Un domaine qui vieillit bien ? Nous visons centrom.studio / centrom.com — pas un relic .io des années 2010.',
+      'Un domaine qui vieillit bien ? Nous visons centrom.ch  Pas un relic .io des années 2010.',
     responseWindow: 'Délai de réponse',
     responseValue: 'souvent sous 1 jour ouvré',
     timezone: 'Fuseau',
@@ -198,7 +198,7 @@ export const fr: Translations = {
     },
   },
   footer: {
-    domains: 'centrom.studio · centrom.com',
+    domains: 'centrom.ch',
     copyright: '© {year} Centrom · tous systèmes nominaux',
   },
 }
