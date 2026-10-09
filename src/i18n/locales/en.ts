@@ -2,22 +2,22 @@ import type { Translations } from '../types'
 
 export const en: Translations = {
   meta: {
-    title: 'Centrom — digital products studio',
+    title: 'Centrom · digital products studio',
     description:
-      'Centrom — digital products studio. Software, WordPress, Shopify, hosting, and finished builds for mid-market businesses.',
+      'Centrom · digital products studio. Software, WordPress, Shopify, hosting, and finished builds for mid-market businesses.',
   },
   nav: {
     aria: 'Primary',
     services: 'Services',
     pricing: 'Pricing',
     contact: 'Contact',
-    status: 'desk online',
+    status: 'online',
     langSelect: 'Language',
   },
   hero: {
     label: '// digital products studio',
-    h1: 'Software, storefronts, and hosting — finished or brokered.',
-    p: 'We build and ship for businesses that need something real online: custom software, WordPress, Shopify, and dependable hosting in the mid range — no theater, just working systems.',
+    h1: 'Software, storefronts, and hosting. Finished or brokered.',
+    p: 'We build and ship for businesses that need online presence: custom software, WordPress, Shopify, and dependable hosting all in one place.',
     ctaBrief: 'Start a brief',
     ctaPricing: 'See pricing',
     terminalUptime: 'studio load: low · queue: open',
@@ -173,7 +173,7 @@ export const en: Translations = {
     p: 'Tell us what you sell, what needs to exist online, and the budget band. We reply from the same desk that ships the work.',
     name: 'Name',
     email: 'Email',
-    lane: 'Lane',
+    lane: 'Product',
     brief: 'Brief',
     placeholder: 'What needs to exist, and by when?',
     transmit: 'Transmit',
@@ -182,13 +182,9 @@ export const en: Translations = {
     mailGeneral: 'general',
     channel: 'channel',
     sideP:
-      'Prefer a domain that ages well? You are in the right place! We will chase perfection for you',
+      'Prefer a website that ages well? You are in the right place! We will chase perfection for you',
     responseWindow: 'Response window',
     responseValue: 'usually within 1 business day',
-    timezone: 'Timezone',
-    timezoneValue: 'CET / CEST · remote-first desks',
-    engagements: 'Engagements',
-    engagementsValue: 'project · retainer · brokered stack',
     lanes: {
       software: 'Custom software',
       wordpress: 'WordPress',
